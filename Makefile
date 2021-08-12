@@ -1,6 +1,6 @@
 .PHONY: all run clean
 
-SOURCE := Source.cpp
+SOURCE := main.cpp window_context.hpp window_context.cpp 
 BINARY := Mandelbrot
 DEPS   := glfw3 glew
 
@@ -11,7 +11,7 @@ LIBS   := $(shell pkg-config --cflags --libs $(DEPS))
 all: $(BINARY)
 
 $(BINARY): $(SOURCE)
-	$(CXX) $(CFLAGS) $(LIBS) -o $@ $^
+	$(CXX) $(CFLAGS) -o $@ $^ $(LIBS)
 
 run:
 	./$(BINARY)
